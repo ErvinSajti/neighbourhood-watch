@@ -12,8 +12,8 @@ function ActiveDuty({ duty, onEnd }: ActiveDutyProps) {
             {/* Info Bar */}
             <View style={styles.infoBar}>
                 <Text>{duty.plate_num}</Text>
-                <Text>Típus: járőrözés</Text>
-                <Text>{duty.starts_at}</Text>
+                <Text>${duty.type}</Text>
+                <Text>{new Date(duty.started_at).toDateString()}</Text>
             </View>
 
             {/* Fellow officers on the duty */}

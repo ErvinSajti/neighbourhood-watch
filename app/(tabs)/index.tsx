@@ -1,23 +1,21 @@
 import { StyleSheet } from 'react-native';
 
 import { Text, View } from '@/components/Themed';
-import {supabase} from "@/lib/supabase";
 import ActiveDuty from "@/components/duties/ActiveDuty";
 import {Duty} from "@/types";
 
 export default function HomeScreen() {
-  // const {data: duty, error} = await supabase.from('duties').select().limit(1).maybeSingle();
-  // if (error) {
-  //   console.error(`${error.code}: ${error.message}`);
-  // }
+  // TODO - get active duties for logged in user
+
   const duty: Duty = {
     id: "rewerwewr3r2wer",
     name: "Járőrözés",
-    starts_at: new Date().toDateString(),
+    started_at: new Date().toDateString(),
     created_at: new Date().toDateString(),
     user_id: "kqhefkqewf",
     plate_num: '324LJK',
-    ends_at: null,
+    ended_at: null,
+    type: "PATROL",
     description: "Körbenézünk errefele nincs-e baj"
   }
 

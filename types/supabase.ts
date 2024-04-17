@@ -13,36 +13,39 @@ export type Database = {
         Row: {
           created_at: string
           description: string | null
-          ends_at: string | null
+          ended_at: string | null
           id: string
           name: string
-          plate_num: string | null
-          starts_at: string
+          plate_num: string
+          started_at: string
+          type: Database["public"]["Enums"]["DutyType"]
           user_id: string | null
         }
         Insert: {
           created_at?: string
           description?: string | null
-          ends_at?: string | null
+          ended_at?: string | null
           id?: string
           name?: string
-          plate_num?: string | null
-          starts_at: string
+          plate_num: string
+          started_at?: string
+          type?: Database["public"]["Enums"]["DutyType"]
           user_id?: string | null
         }
         Update: {
           created_at?: string
           description?: string | null
-          ends_at?: string | null
+          ended_at?: string | null
           id?: string
           name?: string
-          plate_num?: string | null
-          starts_at?: string
+          plate_num?: string
+          started_at?: string
+          type?: Database["public"]["Enums"]["DutyType"]
           user_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "public_events_author_fkey"
+            foreignKeyName: "public_duties_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
             referencedRelation: "profiles"
@@ -53,21 +56,18 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
-          email: string | null
           full_name: string | null
           id: string
           updated_at: string | null
         }
         Insert: {
           avatar_url?: string | null
-          email?: string | null
           full_name?: string | null
           id: string
           updated_at?: string | null
         }
         Update: {
           avatar_url?: string | null
-          email?: string | null
           full_name?: string | null
           id?: string
           updated_at?: string | null
@@ -90,7 +90,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      DutyType: "PATROL"
     }
     CompositeTypes: {
       [_ in never]: never
