@@ -18,7 +18,7 @@ export default function HomeScreen() {
     user_id: "kqhefkqewf",
     plate_num: '324LJK',
     ends_at: null,
-    description: "Körbenézünk errefele nincs e drog"
+    description: "Körbenézünk errefele nincs-e baj"
   }
 
   return (

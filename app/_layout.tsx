@@ -51,10 +51,11 @@ function RootLayoutNav() {
   return (
       <SafeAreaProvider>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <Stack>
+          <Stack initialRouteName="login">
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            <Stack.Screen name="auth" />
+            <Stack.Screen name="login" />
+            <Stack.Screen name="register" />
           </Stack>
         </ThemeProvider>
       </SafeAreaProvider>
