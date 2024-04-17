@@ -1,14 +1,33 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import {supabase} from "@/lib/supabase";
+import ActiveDuty from "@/components/duties/ActiveDuty";
+import {Duty} from "@/types";
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
+  // const {data: duty, error} = await supabase.from('duties').select().limit(1).maybeSingle();
+  // if (error) {
+  //   console.error(`${error.code}: ${error.message}`);
+  // }
+  const duty: Duty = {
+    id: "rewerwewr3r2wer",
+    name: "Járőrözés",
+    starts_at: new Date().toDateString(),
+    created_at: new Date().toDateString(),
+    user_id: "kqhefkqewf",
+    plate_num: '324LJK',
+    ends_at: null,
+    description: "Körbenézünk errefele nincs e drog"
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      {duty ? (
+          <ActiveDuty duty={duty} onEnd={() => {}}/>
+      ) : (
+          <Text>Currently no duties are available</Text>
+      )}
     </View>
   );
 }
