@@ -1,12 +1,16 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
-import { useColorScheme } from '@/components/useColorScheme';
-import {SafeAreaProvider} from "react-native-safe-area-context";
+import { useColorScheme } from '../components/useColorScheme';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -49,15 +53,15 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-      <SafeAreaProvider>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <Stack initialRouteName="login">
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            <Stack.Screen name="login" />
-            <Stack.Screen name="register" />
-          </Stack>
-        </ThemeProvider>
-      </SafeAreaProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+          <Stack.Screen name='login' />
+          <Stack.Screen name='register' />
+        </Stack>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

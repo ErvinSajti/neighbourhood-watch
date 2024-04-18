@@ -1,30 +1,30 @@
 import { StyleSheet } from 'react-native';
 
-import { Text, View } from '@/components/Themed';
-import ActiveDuty from "@/components/duties/ActiveDuty";
-import {Duty} from "@/types";
+import { Text, View } from 'react-native';
+import ActiveDuty from '../../components/duties/ActiveDuty';
+import { Duty, DutyType } from '../../types';
 
 export default function HomeScreen() {
   // TODO - get active duties for logged in user
 
   const duty: Duty = {
-    id: "rewerwewr3r2wer",
-    name: "Járőrözés",
+    id: 'rewerwewr3r2wer',
+    name: 'Járőrözés',
     started_at: new Date().toDateString(),
     created_at: new Date().toDateString(),
-    user_id: "kqhefkqewf",
+    user_id: 'kqhefkqewf',
     plate_num: '324LJK',
     ended_at: null,
-    type: "PATROL",
-    description: "Körbenézünk errefele nincs-e baj"
-  }
+    type: DutyType.Patrol,
+    description: 'Körbenézünk errefele nincs-e baj',
+  };
 
   return (
     <View style={styles.container}>
       {duty ? (
-          <ActiveDuty duty={duty} onEnd={() => {}}/>
+        <ActiveDuty duty={duty} onEnd={() => {}} />
       ) : (
-          <Text>Currently no duties are available</Text>
+        <Text>Currently no duties are available</Text>
       )}
     </View>
   );
